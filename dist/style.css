@@ -1,0 +1,227 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap;
+    background-color: #D4D4D4;
+}
+
+header
+{    
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+.main-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10em
+}
+
+.container-1
+{
+    display: flex;
+    background-color: grey;
+    color: white;
+    padding: 2em;
+    flex-direction: column;
+    gap: 2em;
+    max-height: 30vh;
+    min-height: 28vh;
+    overflow-y: auto;
+}
+
+.container-2
+{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.todo
+{
+    padding: 1em 2em;
+    max-height: 30vh;
+    min-height: 25vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    overflow-y: auto;
+}
+
+.items
+{
+    display: flex;
+    align-items: center;
+}
+
+.name,.due
+{
+    margin: .5em 4em;
+}
+
+.name
+{
+    margin-right: auto;
+}
+
+input[type="checkbox"] 
+{
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: grey;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid grey;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before 
+{
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em grey;
+}
+
+input[type="checkbox"]:checked::before 
+{
+    transform: scale(1);
+}
+
+.todo::-webkit-scrollbar, .container-1::-webkit-scrollbar
+{
+    width: 6px;
+}
+
+.todo::-webkit-scrollbar-thumb, .container-1::-webkit-scrollbar-thumb
+{
+    background: white;
+    border-radius: 5px;
+}
+
+#addBtn:hover 
+{
+    border-color: grey;
+    box-shadow: 0 0 1px black;
+}
+#addBtn:active 
+{
+    box-shadow: 0 5px grey;
+    transform: translateY(1px);
+}
+#addBtn 
+{
+    align-self: flex-end;
+    border: 2px solid grey;
+    border-radius: .5rem;
+    margin: .5rem 0;
+    font-size: 1em;
+    padding: .5rem .5rem;
+    transition: all .07s ease;
+    width: 4rem;
+    text-align: center;
+    font-family: monospace;
+}
+
+
+#add
+{
+    display: flex;
+    gap: 2em
+}
+
+.head
+{
+    padding: 1em;
+    margin: .5em 1em;
+
+    background-color: grey;
+    color: white;
+    text-align: center;
+}
+
+#visible
+{
+    display: none;
+}
+
+#todoList
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#projectList
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#todovisible, #provisible
+{
+    display: none;
+}
+
+.red,.green
+{
+    padding: .5em 1em;
+    font-size: 15px;
+}
+
+.red
+{
+    color: red;
+    border: 1px solid red;
+    background-color: white;
+}
+.red:focus 
+{
+    border: 1px solid white;
+    color: white;
+    background-color: #fa513e;
+}
+.green
+{
+    color: green;
+    border: 1px solid green;
+    background-color: white;
+}
+.green:focus 
+{
+    border: 1px solid white;
+    color: white;
+    background-color: #19cf2e;
+}
+
+.addTodo
+{
+    font-size: 15px;
+    padding: .75em 1em;
+    width: 50%;
+    align-self: center;
+}
