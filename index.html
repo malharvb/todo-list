@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>Todo-List</title>
+</head>
+<body>
+    <header>TODO-LIST</header>
+    <div class="main-container">
+        <div class="container-1">
+            <div class="tab">Default</div>
+        </div>
+        <div class="container-2">
+            <div class="todo">
+                <div class="items">
+                    <input type="checkbox">
+                    <div class="name">Groceries</div>
+                    <div class="due">2/2/2022</div>
+                </div>
+                <div class="items">
+                    <input type="checkbox">
+                    <div class="name">Learn WebDev</div>
+                    <div class="due">2/2/2022</div>
+                </div>
+                <div class="items">
+                    <input type="checkbox">
+                    <div class="name">Exercise</div>
+                    <div class="due">2/2/2022</div>
+                </div>  
+            </div>
+            <button id="addBtn">+</button>
+        </div>
+    </div>
+    <div id="visible">
+        <div id="add">
+            <div id="todoList">
+                <div class="head">Add Todo</div>
+                <div id="todovisible">
+                    
+                    <span>
+                        <label>Name:</label>
+                        <input type="text" name="" id="" placeholder="Todo-Name" maxlength="15">
+                    </span>
+                    <span>
+                        <label>Date:</label>
+                        <input type="date" name="" id="">
+                    </span>
+                    
+                    <div>
+                        <span>Priority: </span>
+                        <button class="red">Important</button>
+                        <button class="green">Normal</button>
+                    </div>
+
+                    <button class="addTodo">Add</button>
+                </div>
+            </div>
+            <div id="projectList">
+                <div id="provisible">
+                    <div class="head">Add Project</div>
+                    <span>
+                        <label>Name:</label>
+                        <input type="text" name="" id="" placeholder="Project-Name" maxlength="15">
+                    </span>
+                    <button class="addTodo">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
