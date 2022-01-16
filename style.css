@@ -40,7 +40,7 @@ header
     color: white;
     padding: 2em;
     flex-direction: column;
-    gap: 2em;
+    gap: 1em;
     max-height: 30vh;
     min-height: 28vh;
     overflow-y: auto;
@@ -58,6 +58,7 @@ header
     padding: 1em 2em;
     max-height: 30vh;
     min-height: 25vh;
+    min-width: 25em;
     display: flex;
     flex-direction: column;
     border: 1px solid grey;
@@ -126,6 +127,7 @@ input[type="checkbox"]:checked::before
 {
     border-color: grey;
     box-shadow: 0 0 1px black;
+    cursor: pointer;
 }
 #addBtn:active 
 {
@@ -146,21 +148,21 @@ input[type="checkbox"]:checked::before
     font-family: monospace;
 }
 
-
 #add
 {
     display: flex;
     gap: 2em
 }
 
-.head
+.headTodo, .headProj
 {
     padding: 1em;
     margin: .5em 1em;
-
+    width: 12em;
     background-color: grey;
     color: white;
     text-align: center;
+    cursor: pointer;
 }
 
 #visible
@@ -199,29 +201,31 @@ input[type="checkbox"]:checked::before
     border: 1px solid red;
     background-color: white;
 }
-.red:focus 
-{
-    border: 1px solid white;
-    color: white;
-    background-color: #fa513e;
-}
+
 .green
 {
-    color: green;
-    border: 1px solid green;
-    background-color: white;
-}
-.green:focus 
-{
-    border: 1px solid white;
     color: white;
-    background-color: #19cf2e;
+    border: 1px solid green;
+    background-color: #38ba5b;
 }
 
-.addTodo
+
+.addTodo, .addPro
 {
     font-size: 15px;
     padding: .75em 1em;
     width: 50%;
     align-self: center;
+}
+
+.tab
+{
+    padding: .4em;
+    cursor: pointer;
+}
+
+.selectedProj
+{
+    background-color: white;
+    color: black;
 }
