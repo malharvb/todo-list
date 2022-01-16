@@ -1,3 +1,6 @@
-import { addLoad } from "./UI";
+import {checkClick} from "./UI";
 
-addLoad();
+checkClick();
+
+
+
