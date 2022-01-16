@@ -1,3 +1,3 @@
-import {checkClick} from "./UI";
+import {checkClick} from "./modules/UI";
 
 checkClick();
