@@ -1,15 +1,13 @@
 import {load} from "./loadDOM";
-import { createProject, projArr, Project} from "./project";
-import {lStorage} from './storage'
+import { createProject, Project} from "./project";
 
 
 let Default = createProject('Default');
-projArr.push(Default);
+Project.projArr.push(Default);
 
 
 function checkClick()
 {
-        lStorage.initProjArr()
         load.AddBtnClick()
         load.TodoHeaderClick()
         load.ProjHeaderClick();

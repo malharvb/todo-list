@@ -3,23 +3,29 @@ import {load} from "./loadDOM";
 import { checkBox } from "./checked";
 import {lStorage} from './storage'
 
-let projArr = []
 
 
 let createProject = (name) => {
      
-    const todo = (name,date,prio) => {
-        let color = prio == 1 ? 'red': 'green';
-        return {name,date,color};
-    }
-
     let arr = [];
 
 
     function addTodo()
     {
         let todoAddBtn = document.querySelector('.addTodo')
-        
+        const todo = (name,date,prio) => {
+            let color = prio == 1 ? 'red': 'green';
+            return {name,date,color};
+        }
+
+        function sortArr(arr)
+        {
+            arr.sort(function(a,b){
+                
+                return a.date - b.date;
+            });
+        }
+
         todoAddBtn.onclick = () => {
             let temp = Todo.DOMTodo();
             if(temp != undefined)
@@ -32,20 +38,13 @@ let createProject = (name) => {
                 load.TodoList(arr);
                 checkBox.isChecked(arr);
 
-                lStorage.updateLocalStorage(projArr);
+                lStorage.updateLocalStorage(Project.projArr);
             }
         }
         
     }
 
-    function sortArr(arr)
-    {
-        arr.sort(function(a,b){
-            
-            return a.date - b.date;
-        });
-
-    }
+    
 
     return {addTodo, arr, name}
 }
@@ -54,10 +53,22 @@ let Project = (() => {
 
     let current = 0
 
+    let projArr = []
+
     function initialCallDefault()
     {
+        if(lStorage.initProjArr() != null)
+        {
+            projArr = lStorage.initProjArr()
+        }
+        
         projArr[current].addTodo()
+        load.TodoList(projArr[current].arr);
+        load.ProjectList(projArr)
+        checkBox.isChecked(projArr[current].arr)
         selectDOM('proj-0')
+        select();    
+        
     }
 
 
@@ -73,7 +84,7 @@ let Project = (() => {
             
             load.ProjectList(projArr);
 
-            selectDOM('proj-0')
+            selectDOM(`proj-${current}`)
 
             projName.value = null;
             
@@ -81,7 +92,6 @@ let Project = (() => {
 
             select();
         })
-        
         
     }
 
@@ -119,7 +129,7 @@ let Project = (() => {
 
 
 
-    return {create, current, initialCallDefault}
+    return {create, current, initialCallDefault, projArr}
 
 })()
-export {createProject, projArr, Project}
+export {createProject, Project}

@@ -1,3 +1,6 @@
+import { lStorage } from "./storage";
+import { Project } from "./project";
+
 const checkBox = (() => { 
 
     let check = document.querySelectorAll('.checkbox');;
@@ -12,6 +15,7 @@ const checkBox = (() => {
             let index = arr.map(function(e) { return e.name; }).indexOf(e.target.nextSibling.nextSibling.innerHTML);
             e.target.nextSibling.nextSibling.innerHTML = '<strike>' + e.target.nextSibling.nextSibling.innerHTML + '</strike>';
             arr.splice(index,1);
+            lStorage.updateLocalStorage(Project.projArr);
             setTimeout(() => {
                 e.target.parentElement.remove();
                 if(arr.length == 0)
@@ -21,10 +25,7 @@ const checkBox = (() => {
             
             }, 1000);
         
-            
-            
         }
-        
         ));
 
     }
