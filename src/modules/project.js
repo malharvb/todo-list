@@ -4,13 +4,9 @@ import { checkBox } from "./checked";
 import {lStorage} from './storage'
 
 
-
-let createProject = (name) => {
-     
-    let arr = [];
-
-
-    function addTodo()
+let addTodoProto = () => 
+{
+    let addTodo = (arr) =>
     {
         let todoAddBtn = document.querySelector('.addTodo')
         const todo = (name,date,prio) => {
@@ -44,8 +40,18 @@ let createProject = (name) => {
         
     }
 
-    
+    return {addTodo}
+}
 
+
+
+
+let createProject = (name) => {
+     
+    let arr = [];
+
+    let {addTodo} = addTodoProto();
+    
     return {addTodo, arr, name}
 }
 
@@ -61,8 +67,7 @@ let Project = (() => {
         {
             projArr = lStorage.initProjArr()
         }
-        
-        projArr[current].addTodo()
+        projArr[current].addTodo(projArr[current].arr)
         load.TodoList(projArr[current].arr);
         load.ProjectList(projArr)
         checkBox.isChecked(projArr[current].arr)
@@ -108,7 +113,7 @@ let Project = (() => {
 
             selectDOM(e.target.id)
 
-            projArr[current].addTodo();
+            projArr[current].addTodo(projArr[current].arr);
 
             checkBox.isChecked(projArr[current].arr);
 
@@ -132,4 +137,4 @@ let Project = (() => {
     return {create, current, initialCallDefault, projArr}
 
 })()
-export {createProject, Project}
+export {createProject, Project, addTodoProto}
